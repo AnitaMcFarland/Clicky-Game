@@ -1,0 +1,14 @@
+.GameCard{
+    display: inline-block;
+    /* height: 100px;
+    width: 100px;   */
+    size: 100px;
+    image-rendering: round;  
+     border: 1px solid black; 
+    border-radius: 20%; 
+    padding: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px; 
+
+
+}
