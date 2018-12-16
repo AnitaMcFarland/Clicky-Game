@@ -7,7 +7,7 @@ function Navbar(props) {
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <ul>
                 <li> Clicky Game!</li>
-                <li>Click on a picture once to score</li>
+                <li>Click on a picture only once to score</li>
               
                 { <li>Score: {props.score} | Top Score: {props.topScore}</li> }
             </ul>

@@ -1,7 +1,5 @@
 .GameCard{
     display: inline-block;
-    /* height: 100px;
-    width: 100px;   */
     opacity: .1 1.0;
     size: 100px;
     image-rendering: round;  

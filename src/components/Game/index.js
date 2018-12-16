@@ -1,13 +1,10 @@
 // src/components/Game
 import React from "react";
 import data from "../../data.json";
-// import Shuffle from "shuffle";
+import Shuffle from 'shuffle-array';
 import Navbar from "../Navbar";
-//  import Header from "./Header";
-// import Footer from "./Footer";
-
 import GameCard from "../GameCard";
-import "../../App.css";
+
 
 class Game extends React.Component {
   constructor() {
@@ -17,24 +14,47 @@ class Game extends React.Component {
       score: 0,
       topScore: 0
     };
+    console.log(data)
   }
-  gameOver = () => {
-      if (this.state.score > this.state.highscore){
-          this.setState({highscore: this.state.score}, function(){
-              console.log(this.state.highscore);
-          });
-      }
-      this.state.cards.forEach(card => {
-        card.count = 0;
-      });
-      alert("Game Over");
-      this.setState({score: 0});
-     return true;
-  }
+
+
+  alreadyGuessed = [];
+
+
   handleImgClick = id => {
-    // console.log(id);
-    this.setState({ score: this.state.score + 1 });
+ 
+
+
+    const { data } = this.state;
+    data.forEach(item => {
+      if (id === item.id) {
+        item.clicked = true;
+      }
+    });
+    this.setState({ data })
+
+
+    console.log(id)
+
+
+    if (this.alreadyGuessed.includes(id)) {
+      this.alreadyGuessed = [];
+      this.setState({ score: 0 });
+      this.setState({ data: Shuffle(this.state.data) })
+    } else {
+      this.alreadyGuessed.push(id);
+      this.setState({ score: this.state.score + 1 });
+      if ((this.state.score) >= (this.state.topScore)) {
+        this.setState({ topScore: this.state.score + 1 })
+      }
+      this.setState({ data: Shuffle(this.state.data) });
+    }
+
+
   }
+
+
+
 
   render() {
     const {
@@ -43,23 +63,32 @@ class Game extends React.Component {
       topScore
     } = this.state;
 
+
     return (
-        <div>
-            <Navbar score={score} topScore={topScore} />
-            <div className="container">
-                <div className="row">
-                    {data.map(item => (
-                        <GameCard
-                        handleImgClick={this.handleImgClick}
-                        key={item.id} {...item} 
-                        />)
-                    )}
-                 </div>
-            </div>
+      <div>
+        
+        <div className="fluid-container">
+          <div className="row navbars"> 
+          </div>
         </div>
+        <div className="container">
+          <div className="row justify-content-center">
+            <Navbar score={score} topScore={topScore} />
+          </div>
+          <div className="row">
+            {data.map(item => (
+              <GameCard
+                handleImgClick={this.handleImgClick}
+                key={item.id} {...item}
+              />)
+            )}
+          </div>
+        </div>
+      </div>
     );
   }
 }
+
 
 export default Game;
 
