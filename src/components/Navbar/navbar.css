@@ -1,9 +1,11 @@
 
     .navbar{
-        background-color: rgba(22, 196, 196, 0.746) !important ;
+        background-color: rgba(22, 141, 196, 0.746) !important ;
         color: rgb(27, 83, 27);
         line-height: 25px;
         font-size: 40px;
+        -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+        box-shadow: 5px 5px 15px 5px #000000;
     
     }
     .navbar li {

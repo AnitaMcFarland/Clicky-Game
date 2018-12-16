@@ -44,17 +44,19 @@ class Game extends React.Component {
     } = this.state;
 
     return (
-      <div>
-        <Navbar score={score} topScore={topScore} />
-        {data.map(item => (
-          <GameCard
-            handleImgClick={this.handleImgClick}
-            key={item.id} {...item} 
-           
-          
-          />)
-        )}
-      </div>
+        <div>
+            <Navbar score={score} topScore={topScore} />
+            <div className="container">
+                <div className="row">
+                    {data.map(item => (
+                        <GameCard
+                        handleImgClick={this.handleImgClick}
+                        key={item.id} {...item} 
+                        />)
+                    )}
+                 </div>
+            </div>
+        </div>
     );
   }
 }

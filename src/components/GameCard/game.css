@@ -2,6 +2,7 @@
     display: inline-block;
     /* height: 100px;
     width: 100px;   */
+    opacity: .1 1.0;
     size: 100px;
     image-rendering: round;  
      border: 1px solid black; 
@@ -10,5 +11,16 @@
     padding-bottom: 30px;
     padding-top: 30px; 
 
+}
 
+img {
+    height: 200px; 
+    width: auto; 
+    border-radius: 39px;
+    border: 1px solid;
+    box-shadow: -1px 3px 12px 5px rgba(0, 0, 0, .4);
+}
+
+.imgUpd {
+    margin: 10px auto; 
 }
